@@ -1,0 +1,306 @@
+<!-- Landing Page -->
+<div id="landing" class="min-h-screen">
+    <nav class="flex justify-between items-center px-8 py-6 border-b border-slate-800/50">
+        <h1 class="text-3xl font-bold gradient-text">Saab</h1>
+        <div class="flex gap-4">
+            <button onclick="showLogin()" class="px-4 py-2 hover:text-purple-300 transition">Login</button>
+            <button onclick="showPricing()" class="px-6 py-2 bg-purple-600 rounded-lg hover:bg-purple-500 transition">Start Free</button>
+        </div>
+    </nav>
+
+    <section class="max-w-6xl mx-auto px-8 pt-24 pb-32 text-center">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/30 mb-6">
+            <svg class="w-4 h-4 text-purple-400" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M10 2L12.39 6.58L17.5 7.27L13.75 10.73L14.76 15.77L10 13.27L5.24 15.77L6.25 10.73L2.5 7.27L7.61 6.58L10 2Z"/>
+            </svg>
+            <span class="text-sm text-purple-300">AI Website Generator v1.0</span>
+        </div>
+        
+        <h2 class="text-7xl font-bold mb-6 leading-tight">
+            Build websites in <span class="gradient-text">seconds</span>,<br>not weeks.
+        </h2>
+        
+        <p class="text-xl text-slate-300 mb-10 max-w-2xl mx-auto">
+            Saab generates production-ready sites with AI plugins for SEO, copy, images, and analytics — all for $19.99/mo.
+        </p>
+        
+        <div class="flex gap-4 justify-center mb-16">
+            <button onclick="showGenerator()" class="px-8 py-4 bg-purple-600 rounded-xl hover:bg-purple-500 font-semibold flex items-center gap-2 glow transition">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z"/>
+                </svg>
+                Generate My Site
+            </button>
+            <button class="px-8 py-4 border border-slate-700 rounded-xl hover:bg-slate-800 transition">
+                Watch Demo
+            </button>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6 mt-20">
+            <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-purple-500/50 transition">
+                <div class="w-12 h-12 rounded-lg bg-purple-500/20 flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-purple-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10 2L12.39 6.58L17.5 7.27L13.75 10.73L14.76 15.77L10 13.27L5.24 15.77L6.25 10.73L2.5 7.27L7.61 6.58L10 2Z"/>
+                    </svg>
+                </div>
+                <h3 class="font-semibold mb-2 text-lg">AI Generation</h3>
+                <p class="text-slate-400 text-sm">GPT-4o builds your site from a single prompt.</p>
+            </div>
+            
+            <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-purple-500/50 transition">
+                <div class="w-12 h-12 rounded-lg bg-purple-500/20 flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-purple-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z"/>
+                    </svg>
+                </div>
+                <h3 class="font-semibold mb-2 text-lg">Smart Plugins</h3>
+                <p class="text-slate-400 text-sm">SEO, copy, images, analytics — auto-applied.</p>
+            </div>
+            
+            <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-purple-500/50 transition">
+                <div class="w-12 h-12 rounded-lg bg-purple-500/20 flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-purple-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    </svg>
+                </div>
+                <h3 class="font-semibold mb-2 text-lg">One-Click Deploy</h3>
+                <p class="text-slate-400 text-sm">Export to Vercel, Netlify, or your domain.</p>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- Generator Interface -->
+<div id="generator" class="hidden min-h-screen p-4">
+    <div class="grid grid-cols-12 gap-4 h-[calc(100vh-2rem)]">
+        
+        <!-- Left Panel - Generator UI -->
+        <div class="col-span-3 p-5 rounded-2xl bg-slate-900 border border-slate-800 overflow-y-auto">
+            <h2 class="font-semibold flex items-center gap-2 mb-4">
+                <svg class="w-5 h-5 text-purple-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10 2L12.39 6.58L17.5 7.27L13.75 10.73L14.76 15.77L10 13.27L5.24 15.77L6.25 10.73L2.5 7.27L7.61 6.58L10 2Z"/>
+                </svg>
+                Generate
+            </h2>
+            
+            <textarea id="promptInput" placeholder="Describe your website..." class="w-full h-32 p-3 rounded-lg bg-slate-800 border border-slate-700 text-sm resize-none focus:border-purple-500 focus:outline-none transition">A modern SaaS landing page for a project management tool called "FlowTask" with a hero section, features grid, pricing, and testimonials</textarea>
+            
+            <div class="mt-4">
+                <label class="text-xs text-slate-400">Style</label>
+                <select class="w-full mt-1 p-2 rounded-lg bg-slate-800 border border-slate-700 text-sm">
+                    <option>Modern</option>
+                    <option>Minimal</option>
+                    <option>Bold</option>
+                    <option>Corporate</option>
+                </select>
+            </div>
+            
+            <div class="mt-4">
+                <label class="text-xs text-slate-400">Plugins</label>
+                <div class="flex flex-wrap gap-2 mt-2">
+                    <button class="px-3 py-1 rounded-full text-xs bg-purple-600">seo</button>
+                    <button class="px-3 py-1 rounded-full text-xs bg-purple-600">copy</button>
+                    <button class="px-3 py-1 rounded-full text-xs bg-slate-800">images</button>
+                    <button class="px-3 py-1 rounded-full text-xs bg-slate-800">analytics</button>
+                    <button class="px-3 py-1 rounded-full text-xs bg-slate-800">i18n</button>
+                </div>
+            </div>
+            
+            <button onclick="simulateGeneration()" class="w-full mt-6 py-3 bg-purple-600 rounded-lg hover:bg-purple-500 font-semibold transition">
+                ✨ Generate Site
+            </button>
+            
+            <div class="mt-6 pt-6 border-t border-slate-800">
+                <h3 class="text-sm font-semibold mb-3">Recent Sites</h3>
+                <div class="space-y-2">
+                    <div class="p-3 rounded-lg bg-slate-800/50 hover:bg-slate-800 cursor-pointer transition">
+                        <div class="text-sm font-medium">E-commerce Store</div>
+                        <div class="text-xs text-slate-400">2 hours ago</div>
+                    </div>
+                    <div class="p-3 rounded-lg bg-slate-800/50 hover:bg-slate-800 cursor-pointer transition">
+                        <div class="text-sm font-medium">Portfolio Site</div>
+                        <div class="text-xs text-slate-400">Yesterday</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Center Panel - Live Preview -->
+        <div class="col-span-6 rounded-2xl bg-white overflow-hidden relative">
+            <div class="absolute top-0 left-0 right-0 h-8 bg-slate-100 border-b border-slate-200 flex items-center px-3 gap-2">
+                <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+                <div class="w-3 h-3 rounded-full bg-green-400"></div>
+                <div class="flex-1 mx-4">
+                    <div class="bg-white rounded px-3 py-1 text-xs text-slate-600 text-center">flowtask.app</div>
+                </div>
+            </div>
+            
+            <div id="previewContent" class="pt-8 h-full overflow-y-auto">
+                <!-- Generated Site Preview -->
+                <div class="bg-gradient-to-br from-blue-600 to-purple-700 text-white">
+                    <nav class="flex justify-between items-center px-8 py-6">
+                        <div class="text-2xl font-bold">FlowTask</div>
+                        <div class="flex gap-6 text-sm">
+                            <a href="#" class="hover:text-blue-200">Features</a>
+                            <a href="#" class="hover:text-blue-200">Pricing</a>
+                            <a href="#" class="hover:text-blue-200">About</a>
+                        </div>
+                        <button class="px-4 py-2 bg-white text-blue-600 rounded-lg font-semibold">Get Started</button>
+                    </nav>
+                    
+                    <div class="max-w-4xl mx-auto px-8 py-20 text-center">
+                        <h1 class="text-5xl font-bold mb-6">Manage Projects<br>Like Never Before</h1>
+                        <p class="text-xl text-blue-100 mb-8">Streamline your workflow, collaborate seamlessly, and deliver projects on time with FlowTask's intelligent project management platform.</p>
+                        <div class="flex gap-4 justify-center">
+                            <button class="px-8 py-3 bg-white text-blue-600 rounded-lg font-semibold">Start Free Trial</button>
+                            <button class="px-8 py-3 border-2 border-white rounded-lg font-semibold">Watch Demo</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="py-20 px-8 bg-white">
+                    <div class="max-w-6xl mx-auto">
+                        <h2 class="text-4xl font-bold text-center mb-12 text-slate-900">Powerful Features</h2>
+                        <div class="grid md:grid-cols-3 gap-8">
+                            <div class="p-6 rounded-xl border border-slate-200">
+                                <div class="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center mb-4">
+                                    <svg class="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"/>
+                                        <path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clip-rule="evenodd"/>
+                                    </svg>
+                                </div>
+                                <h3 class="font-semibold text-lg mb-2 text-slate-900">Smart Task Management</h3>
+                                <p class="text-slate-600 text-sm">Organize tasks with AI-powered prioritization and automated workflows.</p>
+                            </div>
+                            
+                            <div class="p-6 rounded-xl border border-slate-200">
+                                <div class="w-12 h-12 rounded-lg bg-purple-100 flex items-center justify-center mb-4">
+                                    <svg class="w-6 h-6 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.972 5.972 0 004 15v3H1v-3a3 3 0 013.75-2.906z"/>
+                                    </svg>
+                                </div>
+                                <h3 class="font-semibold text-lg mb-2 text-slate-900">Team Collaboration</h3>
+                                <p class="text-slate-600 text-sm">Real-time collaboration with comments, mentions, and shared workspaces.</p>
+                            </div>
+                            
+                            <div class="p-6 rounded-xl border border-slate-200">
+                                <div class="w-12 h-12 rounded-lg bg-green-100 flex items-center justify-center mb-4">
+                                    <svg class="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+                                    </svg>
+                                </div>
+                                <h3 class="font-semibold text-lg mb-2 text-slate-900">Timeline & Gantt</h3>
+                                <p class="text-slate-600 text-sm">Visual project timelines with drag-and-drop scheduling and dependencies.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Right Panel - Plugins -->
+        <div class="col-span-3 p-5 rounded-2xl bg-slate-900 border border-slate-800 overflow-y-auto">
+            <h3 class="font-semibold mb-4">Plugin Results</h3>
+            
+            <div class="space-y-4">
+                <div class="p-4 rounded-lg bg-slate-800">
+                    <div class="text-xs text-purple-400 uppercase mb-2 font-semibold">SEO</div>
+                    <div class="space-y-2 text-xs">
+                        <div>
+                            <div class="text-slate-400 mb-1">Title</div>
+                            <div class="text-slate-200">FlowTask - Modern Project Management Software</div>
+                        </div>
+                        <div>
+                            <div class="text-slate-400 mb-1">Description</div>
+                            <div class="text-slate-200">Streamline your workflow with FlowTask's AI-powered project management platform. Start free trial today.</div>
+                        </div>
+                        <div>
+                            <div class="text-slate-400 mb-1">Keywords</div>
+                            <div class="text-slate-200">project management, task management, team collaboration, workflow automation</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="p-4 rounded-lg bg-slate-800">
+                    <div class="text-xs text-purple-400 uppercase mb-2 font-semibold">Copy</div>
+                    <div class="text-xs text-slate-200">
+                        "Transform chaos into clarity. FlowTask's intelligent platform adapts to your team's unique workflow, turning complex projects into simple, achievable goals."
+                    </div>
+                </div>
+                
+                <div class="p-4 rounded-lg bg-slate-800">
+                    <div class="text-xs text-purple-400 uppercase mb-2 font-semibold">Images</div>
+                    <div class="text-xs text-slate-200">
+                        <div class="mb-2">Provider: Unsplash</div>
+                        <div class="text-slate-400">Query: modern workspace, team collaboration</div>
+                        <div class="mt-2 flex gap-2">
+                            <div class="w-12 h-12 rounded bg-gradient-to-br from-blue-400 to-purple-500"></div>
+                            <div class="w-12 h-12 rounded bg-gradient-to-br from-purple-400 to-pink-500"></div>
+                            <div class="w-12 h-12 rounded bg-gradient-to-br from-pink-400 to-red-500"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="p-4 rounded-lg bg-slate-800">
+                    <div class="text-xs text-purple-400 uppercase mb-2 font-semibold">Analytics</div>
+                    <div class="text-xs text-slate-200">
+                        <div class="flex items-center gap-2 mb-2">
+                            <div class="w-2 h-2 rounded-full bg-green-400"></div>
+                            <span>Plausible Analytics injected</span>
+                        </div>
+                        <div class="text-slate-400">Privacy-focused, GDPR compliant</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-6 pt-6 border-t border-slate-800">
+                <button class="w-full py-3 bg-purple-600 rounded-lg hover:bg-purple-500 font-semibold transition">
+                    🚀 Deploy to Vercel
+                </button>
+                <button class="w-full mt-2 py-3 border border-slate-700 rounded-lg hover:bg-slate-800 transition">
+                    📥 Export Code
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Pricing Page -->
+<div id="pricing" class="hidden min-h-screen flex items-center justify-center px-8">
+    <div class="max-w-md w-full p-8 rounded-3xl bg-gradient-to-br from-purple-900/40 to-slate-900 border border-purple-500/30">
+        <div class="text-sm text-purple-400 mb-2 font-semibold">PRO PLAN</div>
+        <div class="flex items-baseline gap-2 mb-6">
+            <span class="text-5xl font-bold">$19.99</span>
+            <span class="text-slate-400">/month</span>
+        </div>
+        <ul class="space-y-3 mb-8">
+            <li class="flex gap-2 text-sm">
+                <svg class="w-5 h-5 text-green-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                Unlimited AI site generations
+            </li>
+            <li class="flex gap-2 text-sm">
+                <svg class="w-5 h-5 text-green-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                All 5 AI plugins (SEO, Copy, Images, Analytics, i18n)
+            </li>
+            <li class="flex gap-2 text-sm">
+                <svg class="w-5 h-5 text-green-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                Live preview & one-click deploy
+            </li>
+            <li class="flex gap-2 text-sm">
+                <svg class="w-5 h-5 text-green-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                Custom domain support
+            </li>
+            <li class="flex gap-2 text-sm">
+                <svg class="w-5 h-5 text-green-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+   
